@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Soccer App</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0f172a;
+  color: white;
+  font-family: Arial;
+}
+
+/* Header */
+.header {
+  background: #111827;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+}
+
+/* Match List */
+.container {
+  padding: 10px;
+  padding-bottom: 70px;
+}
+
+.match {
+  background: #1f2937;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.teams {
+  font-size: 16px;
+}
+
+.score {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.time {
+  color: #22c55e;
+  font-size: 14px;
+}
+
+/* Bottom Navigation */
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #111827;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.nav div {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.nav div.active {
+  color: #22c55e;
+}
+
+/* Admin Panel */
+.admin {
+  background: #111827;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+input {
+  width: 30%;
+  padding: 8px;
+  margin: 5px;
+}
+
+button {
+  padding: 8px;
+  background: #22c55e;
+  border: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">⚽ Live Scores</div>
+
+<div class="container">
+
+  <div class="match">
+    <div class="teams">City vs United</div>
+    <div class="score" id="score">0 - 0</div>
+    <div class="time" id="time">00'</div>
+  </div>
+
+  <div class="admin">
+    <h4>Admin</h4>
+    <input id="a" placeholder="A">
+    <input id="b" placeholder="B">
+    <input id="t" placeholder="Time">
+    <br>
+    <button onclick="update()">Update</button>
+  </div>
+
+</div>
+
+<!-- Bottom Nav -->
+<div class="nav">
+  <div class="active">🏠<br>Home</div>
+  <div>📊<br>Matches</div>
+  <div>⭐<br>Favorites</div>
+  <div>⚙️<br>Settings</div>
+</div>
+
+<script>
+function update() {
+  document.getElementById("score").innerText =
+    document.getElementById("a").value + " - " +
+    document.getElementById("b").value;
+
+  document.getElementById("time").innerText =
+    document.getElementById("t").value;
+}
+</script>
+
+</body>
+</html>
